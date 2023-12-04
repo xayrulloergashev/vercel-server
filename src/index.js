@@ -7,7 +7,7 @@ const mongo_host =
 const AppRouter = require("./router");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
+const path = require("path");
 // var whitelist = ["http://localhost:8080/api"];
 // var corsOptions = {
 //   origin: function (origin, callback) {
@@ -34,6 +34,13 @@ mongoose
   });
 
 app.use("/api", AppRouter);
+
+const root = path.join(__dirname, "../public/");
+
+app.use(express.static(root));
+app.get("/*", (req, res) => {
+  res.sendFile("index.html", { root });
+});
 
 const imagePath = "./uploads";
 app.use("/files", express.static(imagePath));
