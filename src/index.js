@@ -2,7 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const port = 8080;
-const mongo_host = "mongodb://localhost:27017/redux-projects";
+const mongo_host =
+  "mongodb+srv://test00010880:acwr8oTFgPGkPeSJ@cluster0.lrezh7j.mongodb.net/?retryWrites=true&w=majority";
 const AppRouter = require("./router");
 const cors = require("cors");
 const bodyParser = require("body-parser");
